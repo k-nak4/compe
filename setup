@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo -n "コンテスト名を入力:"
+read dir_name
+mkdir -p $dir_name
+
+for i in `seq 4`
+do
+    cp template_c++14.cpp $dir_name/$i.cpp
+done
