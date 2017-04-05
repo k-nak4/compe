@@ -1,10 +1,23 @@
 #!/bin/sh
 
-echo -n "コンテスト名を入力:"
+echo "y: yukicoder\na: atcoder\nc: codeforces: "
+read tmp
+if [ "$tmp" = "y" ]; then
+    compe_name="Yukicoder"
+elif [ "$tmp" = "a" ]; then
+    compe_name="Atcoder"
+elif [ "$tmp" = "c" ]; then
+    compe_name="Codeforces"
+else
+    echo "Error"
+    exit 1
+fi
+
+echo -n "ディレクトリ名を入力:"
 read dir_name
-mkdir -p $dir_name
+mkdir -p $compe_name/$dir_name
 
 for i in `seq 4`
 do
-    cp template_c++14.cpp $dir_name/$i.cpp
+    cp template_c++14.cpp $compe_name/$dir_name/$i.cpp
 done
